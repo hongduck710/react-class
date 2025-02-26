@@ -48,7 +48,7 @@ import {userSlice} from "../store/slice/userSlice";
 const UserList = () => {
     const [userData, setUserData] = useState([]);
     const dispatch = useDispatch();
-    const {users, loading, error} = useSelector((state) => state.userList);
+    const {users, loading, error} = useSelector((state) => state.userList); // service를 받는 부분. userList: store에 있는 이름 
 
         useEffect(() => {
             dispatch(userSlice());

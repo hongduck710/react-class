@@ -1,5 +1,6 @@
 
 import './App.css';
+import UserInfo from './components/UserInfo';
 import UserList from './components/UserList';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <h1>🌼Hello World🌼</h1>
       <UserList />
+      <UserInfo />
     </>
   );
 }

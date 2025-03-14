@@ -64,6 +64,7 @@ const UserList = () => {
     // const columns = users.length > 0 ? Object.keys(users[0]) : [];
     
     if(loading) {return <div>불러오는 중...</div>} 
+    if(error) {return <div>에러 발생: {error}</div>}
     
     return (
         <>

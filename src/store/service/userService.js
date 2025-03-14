@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-import { userSlice } from "../slice/userSlice";
+import { fetchUserThunk } from "../slice/userSlice";
 
 const userService = createSlice({
     name: "users",
@@ -12,17 +12,17 @@ const userService = createSlice({
     reducers: {},
     extraReducers: (builder) => {
       builder
-        .addCase(userSlice.pending, (state) => { // state, action 키값이기 때문에 변하지 않음
+        .addCase(fetchUserThunk.pending, (state) => { // state, action 키값이기 때문에 변하지 않음
           state.loading = true;
           state.error = null;
         })
-        .addCase(userSlice.fulfilled, (state, action) => { //action에 데이터가 담겨지게 되면서 
+        .addCase(fetchUserThunk.fulfilled, (state, action) => { //action에 데이터가 담겨지게 되면서 
           state.loading = false;
           state.users = action.payload; // response.data가 이 곳에 담김
         })
-        .addCase(userSlice.rejected, (state, action) => { // 데이터를 받지 못할 경우 이 곳에 오게 됨.
+        .addCase(fetchUserThunk.rejected, (state, action) => { // 데이터를 받지 못할 경우 이 곳에 오게 됨.
           state.loading = false;
-          state.error = action.error.message;
+          state.error = action.payload || action.error.message;
         });
     },
   });

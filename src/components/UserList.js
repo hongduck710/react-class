@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {userSlice} from "../store/slice/userSlice";
+import {fetchUserThunk} from "../store/slice/userSlice";
 
 
 
@@ -51,7 +51,7 @@ const UserList = () => {
     const {users, loading, error} = useSelector((state) => state.userList); // service를 받는 부분. userList: store에 있는 이름 
 
         useEffect(() => {
-            dispatch(userSlice());
+            dispatch(fetchUserThunk());
             //console.log("users", users);
             //setUserData(users); setUserData와 dispatch같이 쓰면 안됨(?)
         }, [dispatch]);

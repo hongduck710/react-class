@@ -7,7 +7,7 @@ export const fetchUserThunk = createAsyncThunk("users/fetchUsers", async (_, {re
         console.log("response.data", response.data);
         return response.data; // 
     } catch (err) {
-        console.log(err);
+        console.error(err);
         return rejectWithValue("어딘가에서 에러 발생.");
     }
 });
